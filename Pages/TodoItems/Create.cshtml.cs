@@ -32,6 +32,7 @@ namespace ToDoApplication_RazorPages.Pages.TodoItems
             {
                 await _db.TodoItems.AddAsync(TodoItem);
                 await _db.SaveChangesAsync();
+                TempData["success"] = "New task added successfully!";
 
                 return RedirectToPage("Index");
             }

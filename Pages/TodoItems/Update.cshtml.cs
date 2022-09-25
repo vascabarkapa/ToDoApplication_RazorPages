@@ -33,6 +33,7 @@ namespace ToDoApplication_RazorPages.Pages.TodoItems
             {
                 _db.TodoItems.Update(TodoItem);
                 await _db.SaveChangesAsync();
+                TempData["success"] = "Task updated successfully!";
 
                 return RedirectToPage("Index");
             }

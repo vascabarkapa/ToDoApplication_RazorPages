@@ -30,6 +30,8 @@ namespace ToDoApplication_RazorPages.Pages.TodoItems
             {
                 _db.TodoItems.Remove(todoItemFromDb);
                 await _db.SaveChangesAsync();
+                TempData["success"] = "Task deleted successfully!";
+
                 return RedirectToPage("Index");
             }
 
