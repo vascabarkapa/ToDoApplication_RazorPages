@@ -5,6 +5,7 @@ using ToDoApplication_RazorPages.Model;
 
 namespace ToDoApplication_RazorPages.Pages.TodoItems
 {
+    [BindProperties]
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _db;
@@ -20,9 +21,9 @@ namespace ToDoApplication_RazorPages.Pages.TodoItems
         {
         }
 
-        public async Task<IActionResult> OnPost(TodoItem todoItem)
+        public async Task<IActionResult> OnPost()
         {
-            await _db.TodoItems.AddAsync(todoItem);
+            await _db.TodoItems.AddAsync(TodoItem);
             await _db.SaveChangesAsync();
 
             return RedirectToPage("Index");
