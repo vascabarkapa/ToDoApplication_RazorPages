@@ -23,10 +23,15 @@ namespace ToDoApplication_RazorPages.Pages.TodoItems
 
         public async Task<IActionResult> OnPost()
         {
-            await _db.TodoItems.AddAsync(TodoItem);
-            await _db.SaveChangesAsync();
+            if(ModelState.IsValid)
+            {
+                await _db.TodoItems.AddAsync(TodoItem);
+                await _db.SaveChangesAsync();
 
-            return RedirectToPage("Index");
+                return RedirectToPage("Index");
+            }
+
+            return Page();
         }
     }
 }
