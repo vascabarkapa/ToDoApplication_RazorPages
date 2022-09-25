@@ -17,8 +17,9 @@ namespace ToDoApplication_RazorPages.Pages.TodoItems
 
         public TodoItem TodoItem { get; set; }
 
-        public void OnGet()
+        public void OnGet(int id)
         {
+            TodoItem = _db.TodoItems.Find(id);
         }
 
         public async Task<IActionResult> OnPost()
@@ -30,7 +31,7 @@ namespace ToDoApplication_RazorPages.Pages.TodoItems
 
             if (ModelState.IsValid)
             {
-                await _db.TodoItems.AddAsync(TodoItem);
+                _db.TodoItems.Update(TodoItem);
                 await _db.SaveChangesAsync();
 
                 return RedirectToPage("Index");

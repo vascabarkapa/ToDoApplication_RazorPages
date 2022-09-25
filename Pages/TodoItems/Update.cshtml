@@ -2,9 +2,10 @@
 @model ToDoApplication_RazorPages.Pages.TodoItems.UpdateModel
 
 <form method="post">
+    <input hidden asp-for="TodoItem.Id" />
     <div class="p-3 mt-4">
         <div class="row pb-2">
-            <h2 class="text-dark">Add new Task</h2>
+            <h2 class="text-dark">Update Task</h2>
             <hr />
         </div>
         <div class="mb-3">
