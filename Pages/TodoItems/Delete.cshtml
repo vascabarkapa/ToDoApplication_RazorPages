@@ -5,43 +5,38 @@
     <input hidden asp-for="TodoItem.Id" />
     <div class="p-3 mt-4">
         <div class="row pb-2">
-            <h2 class="text-dark">Update Task</h2>
+            <h2 class="text-dark">Delete Task</h2>
             <hr />
         </div>
         <div class="mb-3">
             <label asp-for="TodoItem.Name"></label>
-            <input asp-for="TodoItem.Name" class="form-control" />
-            <span asp-validation-for="TodoItem.Name" class="text-danger"></span>
+            <input asp-for="TodoItem.Name" disabled class="form-control" />
         </div>
         <div class="mb-3">
             <label asp-for="TodoItem.Description"></label>
-            <input asp-for="TodoItem.Description" class="form-control" />
-            <span asp-validation-for="TodoItem.Description" class="text-danger"></span>
+            <input asp-for="TodoItem.Description" disabled class="form-control" />
         </div>
         <div class="mb-3">
             <label asp-for="TodoItem.DateAndTime"></label>
-            <input asp-for="TodoItem.DateAndTime" class="form-control" />
-            <span asp-validation-for="TodoItem.DateAndTime" class="text-danger"></span>
+            <input asp-for="TodoItem.DateAndTime" disabled class="form-control" />
         </div>
         <div class="mb-3">
             <label asp-for="TodoItem.Priority"></label>
-            <select asp-for="TodoItem.Priority" class="form-select" aria-label="Priority">
+            <select asp-for="TodoItem.Priority" disabled class="form-select" aria-label="Priority">
                 <option value="" selected>Select a priority</option>
                 <option value="High">High</option>
                 <option value="Medium">Medium</option>
                 <option value="Low">Low</option>
             </select>
-            <span asp-validation-for="TodoItem.Priority" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" asp-for="TodoItem.isDone">
+                <input class="form-check-input" disabled type="checkbox" asp-for="TodoItem.isDone">
                 <label class="form-check-label" asp-for="TodoItem.isDone"></label>
-                <span asp-validation-for="TodoItem.isDone" class="text-danger"></span>
             </div>
         </div>
         <button type="submit" class="btn btn-dark" style="width:150px">
-            Add
+            Delete
         </button>
         <a asp-page="Index" class="btn btn-danger" style="width:150px">
             Back to List

@@ -24,16 +24,12 @@ namespace ToDoApplication_RazorPages.Pages.TodoItems
 
         public async Task<IActionResult> OnPost()
         {
-            if (TodoItem.Priority == "")
-            {
-                ModelState.AddModelError("Priority", "The Priority is required.");
-            }
+            var todoItemFromDb = _db.TodoItems.Find(TodoItem.Id);
 
-            if (ModelState.IsValid)
+            if (todoItemFromDb != null)
             {
-                _db.TodoItems.Update(TodoItem);
+                _db.TodoItems.Remove(todoItemFromDb);
                 await _db.SaveChangesAsync();
-
                 return RedirectToPage("Index");
             }
 
