@@ -23,7 +23,12 @@ namespace ToDoApplication_RazorPages.Pages.TodoItems
 
         public async Task<IActionResult> OnPost()
         {
-            if(ModelState.IsValid)
+            if (TodoItem.Priority == "")
+            {
+                ModelState.AddModelError("Priority", "The Priority is required.");
+            }
+
+            if (ModelState.IsValid)
             {
                 await _db.TodoItems.AddAsync(TodoItem);
                 await _db.SaveChangesAsync();
