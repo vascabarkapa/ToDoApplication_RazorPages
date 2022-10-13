@@ -1,5 +1,8 @@
 ﻿@page
 @model ToDoApplication_RazorPages.Pages.TodoItems.DeleteModel
+@{
+    ViewData["Title"] = "Delete Task";
+}
 
 <form method="post">
     <input hidden asp-for="TodoItem.Id" />
