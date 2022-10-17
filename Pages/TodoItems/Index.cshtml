@@ -17,66 +17,68 @@
     </div>
 </div>
 <br />
-<table class="table table-bordered table-striped" width="100%">
-    <thead>
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Description
-            </th>
-            <th>
-                Date
-            </th>
-            <th>
-                Priority
-            </th>
-            <th>
-                Done
-            </th>
-            <th>
-
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var obj in Model.TodoItems)
-        {
+<div class="table-responsive">
+    <table class="table table-bordered table-striped" width="100%">
+        <thead>
             <tr>
-                <td width="20%">
-                    @obj.Name
-                </td>
-                <td width="20%">
-                    @obj.Description
-                </td>
-                <td width="20%">
-                    @obj.DateAndTime
-                </td>
-                <td width="20%">
-                    @obj.Priority
-                </td>
-                <td width="20%">
-                    @if(@obj.isDone)
-                    {
-                        <i class="bi bi-check-lg"></i>
-                    }
-                    else
-                    {
-                        <i class="bi bi-x-lg"></i>
-                    }
-                </td>
-                <td>
-                    <div class="w-75 btn-group" role="group">
-                        <a asp-page="Update" asp-route-id="@obj.Id" class="btn btn-dark rounded mx-2 text-center">
-                            <i class="bi bi-pencil-square"></i> &nbsp; Edit
-                        </a>
-                        <a asp-page="Delete" asp-route-id="@obj.Id" class="btn btn-danger rounded mx-2 text-center">
-                            <i class="bi bi-trash"></i> &nbsp; Delete
-                        </a>
-                    </div>
-                </td>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Priority
+                </th>
+                <th>
+                    Done
+                </th>
+                <th>
+
+                </th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model.TodoItems)
+            {
+                <tr>
+                    <td width="20%">
+                        @obj.Name
+                    </td>
+                    <td width="20%">
+                        @obj.Description
+                    </td>
+                    <td width="20%">
+                        @obj.DateAndTime
+                    </td>
+                    <td width="20%">
+                        @obj.Priority
+                    </td>
+                    <td width="20%">
+                        @if (@obj.isDone)
+                        {
+                            <i class="bi bi-check-lg"></i>
+                        }
+                        else
+                        {
+                            <i class="bi bi-x-lg"></i>
+                        }
+                    </td>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-page="Update" asp-route-id="@obj.Id" class="btn btn-dark rounded mx-2 text-center">
+                                <i class="bi bi-pencil-square"></i> &nbsp; Edit
+                            </a>
+                            <a asp-page="Delete" asp-route-id="@obj.Id" class="btn btn-danger rounded mx-2 text-center">
+                                <i class="bi bi-trash"></i> &nbsp; Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
